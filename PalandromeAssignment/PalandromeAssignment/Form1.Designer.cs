@@ -63,6 +63,7 @@
             this.submit_Btn.TabIndex = 1;
             this.submit_Btn.Text = "Submit";
             this.submit_Btn.UseVisualStyleBackColor = true;
+            this.submit_Btn.Click += new System.EventHandler(this.submit_Btn_Click);
             // 
             // paragraph_Label
             // 
