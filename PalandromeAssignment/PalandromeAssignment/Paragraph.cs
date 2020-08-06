@@ -10,12 +10,14 @@ namespace PalandromeAssignment
     {
         List<Sentence> sentenceList = new List<Sentence>();
         List<Word> individualWordsList = new List<Word>();
-        int palSentences;
-        int palWords;
+
+        public int palSentences;
+        public int palWords;
 
 
         //What delimiterChars
         char[] delimiterChars = { '.', '!', '?' };
+ 
 
         public void developTheParagraph(string paragraphText)
         {
@@ -64,7 +66,6 @@ namespace PalandromeAssignment
 
             Console.WriteLine("YOU HAVE " + palWords + " Palindromes");
         }
-
         public void developSentences(string pText)
         {
             //split by sentance
@@ -102,7 +103,6 @@ namespace PalandromeAssignment
             }
             Console.WriteLine("YOU HAVE " + palSentences + " Palendrom sentences");
         }
-
         bool checkIfPalendrome(string txt)
         {
             Console.WriteLine("CHECKING: " + txt);
