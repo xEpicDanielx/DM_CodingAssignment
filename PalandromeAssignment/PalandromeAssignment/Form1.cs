@@ -12,8 +12,9 @@ namespace PalandromeAssignment
 {
     public partial class Form1 : Form
     {
-        public string paragraphText; 
+        public string paragraphText;
 
+        Paragraph currentParagraph; 
         public Form1()
         {
             InitializeComponent();
@@ -28,15 +29,23 @@ namespace PalandromeAssignment
 
         void initParagraph()
         {
-            Paragraph paragraph = new Paragraph();
+            currentParagraph = new Paragraph();
             if (paragraphText != null)
             {
-                paragraph_Label.Text = paragraphText; 
-                paragraph.developTheParagraph(paragraphText);
+                paragraph_Label.Text = paragraphText;
+                currentParagraph.developTheParagraph(paragraphText);
             }
             else
                 paragraph_Label.Text = "Please enter a paragraph";
+
+            updateDisplay();
             /*split words*/
+        }
+
+        void updateDisplay()
+        {
+            pSentenceCount_Label.Text = currentParagraph.palSentences.ToString();
+            pWordCount_Label.Text = currentParagraph.palWords.ToString(); 
         }
     }
 }
