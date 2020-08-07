@@ -33,10 +33,13 @@
             this.submit_Btn = new System.Windows.Forms.Button();
             this.paragraph_TB = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.pSentenceCount_Label = new System.Windows.Forms.Label();
             this.pWordCount_Label = new System.Windows.Forms.Label();
+            this.pSentenceCount_Label = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.wordDisplay_LB = new System.Windows.Forms.ListView();
+            this.Word = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Count = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -93,23 +96,16 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Palandrome Stats";
             // 
-            // label1
+            // pWordCount_Label
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 25);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(117, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Palandrome Sentences";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(278, 25);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(97, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Palandrome Words";
+            this.pWordCount_Label.AutoSize = true;
+            this.pWordCount_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pWordCount_Label.Location = new System.Drawing.Point(315, 49);
+            this.pWordCount_Label.Name = "pWordCount_Label";
+            this.pWordCount_Label.Size = new System.Drawing.Size(24, 25);
+            this.pWordCount_Label.TabIndex = 3;
+            this.pWordCount_Label.Text = "0";
+            this.pWordCount_Label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pSentenceCount_Label
             // 
@@ -122,22 +118,54 @@
             this.pSentenceCount_Label.Text = "0";
             this.pSentenceCount_Label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // pWordCount_Label
+            // label2
             // 
-            this.pWordCount_Label.AutoSize = true;
-            this.pWordCount_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pWordCount_Label.Location = new System.Drawing.Point(315, 49);
-            this.pWordCount_Label.Name = "pWordCount_Label";
-            this.pWordCount_Label.Size = new System.Drawing.Size(24, 25);
-            this.pWordCount_Label.TabIndex = 3;
-            this.pWordCount_Label.Text = "0";
-            this.pWordCount_Label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(278, 25);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(97, 13);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Palandrome Words";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 25);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(117, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Palandrome Sentences";
+            // 
+            // wordDisplay_LB
+            // 
+            this.wordDisplay_LB.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.Word,
+            this.Count});
+            this.wordDisplay_LB.GridLines = true;
+            this.wordDisplay_LB.HideSelection = false;
+            this.wordDisplay_LB.Location = new System.Drawing.Point(361, 128);
+            this.wordDisplay_LB.Name = "wordDisplay_LB";
+            this.wordDisplay_LB.Size = new System.Drawing.Size(181, 283);
+            this.wordDisplay_LB.TabIndex = 3;
+            this.wordDisplay_LB.UseCompatibleStateImageBehavior = false;
+            this.wordDisplay_LB.View = System.Windows.Forms.View.Details;
+            // 
+            // Word
+            // 
+            this.Word.Text = "Word";
+            this.Word.Width = 120;
+            // 
+            // Count
+            // 
+            this.Count.Text = "Count";
+            this.Count.Width = 61;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.wordDisplay_LB);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "Form1";
@@ -161,6 +189,9 @@
         private System.Windows.Forms.Label pSentenceCount_Label;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ListView wordDisplay_LB;
+        private System.Windows.Forms.ColumnHeader Word;
+        private System.Windows.Forms.ColumnHeader Count;
     }
 }
 

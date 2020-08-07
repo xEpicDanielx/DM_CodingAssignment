@@ -22,7 +22,9 @@ namespace PalandromeAssignment
 
         private void submit_Btn_Click(object sender, EventArgs e)
         {
+
             paragraphText = paragraph_TB.Text;
+        
 
             initParagraph();
         }
@@ -45,7 +47,16 @@ namespace PalandromeAssignment
         void updateDisplay()
         {
             pSentenceCount_Label.Text = currentParagraph.palSentences.ToString();
-            pWordCount_Label.Text = currentParagraph.palWords.ToString(); 
+            pWordCount_Label.Text = currentParagraph.palWords.ToString();
+            foreach(KeyValuePair<string,int> word in currentParagraph.individualWordsDictionary)
+            {
+                ListViewItem item = new ListViewItem(word.Key);
+                item.SubItems.Add(word.Value.ToString());
+                wordDisplay_LB.Items.Add(item);
+            }
+            
+           
         }
+        
     }
 }

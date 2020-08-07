@@ -9,8 +9,9 @@ namespace PalandromeAssignment
     class Paragraph
     {
         List<Sentence> sentenceList = new List<Sentence>();
-        List<Word> individualWordsList = new List<Word>();
-
+        public List<Word> individualWordsList = new List<Word>();
+        
+        public Dictionary<String, int> individualWordsDictionary = new Dictionary<String,int>();
         public int palSentences;
         public int palWords;
 
@@ -21,11 +22,12 @@ namespace PalandromeAssignment
 
         public void developTheParagraph(string paragraphText)
         {
+            string pText = paragraphText.ToLower(); 
             //first lets develop the words
-            developWords(paragraphText);
+            developWords(pText);
 
             //next lets develop the sentences
-            developSentences(paragraphText);
+            developSentences(pText);
         }
         public void developWords(string paragraphText)
         {
@@ -46,7 +48,7 @@ namespace PalandromeAssignment
 
                 //thereis a better way to do this.
                 individualWords[i] = sb.ToString();
-                Word temp = new Word();
+                /*Word temp = new Word();
                 temp.spelling = individualWords[i];
                 temp.isPalindrome = checkIfPalendrome(individualWords[i]);
                 if (temp.isPalindrome)
@@ -61,10 +63,22 @@ namespace PalandromeAssignment
                 {
                     temp.occuranceNumber = 1;
                 }
+                individualWordsList.Add(temp);*/
+                if (individualWordsDictionary.ContainsKey(individualWords[i]))
+                {
+                    individualWordsDictionary[individualWords[i]] += 1; 
+                }
+                else
+                {
+                    individualWordsDictionary.Add(individualWords[i], 1); 
+                }
                 sb = new StringBuilder();
             }
+            foreach (KeyValuePair<string, int> word in individualWordsDictionary)
+            {
+                Console.WriteLine(word.Key + ":" + word.Value);
+            }
 
-            Console.WriteLine("YOU HAVE " + palWords + " Palindromes");
         }
         public void developSentences(string pText)
         {
