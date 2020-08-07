@@ -12,9 +12,12 @@ namespace PalandromeAssignment
 {
     public partial class Form1 : Form
     {
+        //paragraph we are analizing
+        Paragraph currentParagraph;
+
+        //text of paragraph. 
         public string paragraphText;
 
-        Paragraph currentParagraph; 
         public Form1()
         {
             InitializeComponent();
@@ -22,12 +25,23 @@ namespace PalandromeAssignment
 
         private void submit_Btn_Click(object sender, EventArgs e)
         {
-
-            paragraphText = paragraph_TB.Text;
-        
-            initParagraph();
+            //first we clear all displays
+            clearDisplays();
+            //this checks if user just entered a space or a empty paragraph.
+            paragraphText = paragraph_TB.Text.Trim();
+            //if its not 0 then we can create a paragraph.
+            if(paragraphText.Length != 0)
+            {
+                initParagraph();
+            }
+            else
+            {
+                //tells user we need to add a paragraph.
+                InstructUser(); 
+            }
         }
 
+        //Create a new paragaph based upon the input of the user.
         void initParagraph()
         {
             currentParagraph = new Paragraph();
@@ -40,39 +54,6 @@ namespace PalandromeAssignment
                 paragraph_Label.Text = "Please enter a paragraph";
 
             updateDisplay();
-        }
-
-        void updateDisplay()
-        {
-            pSentenceCount_Label.Text = currentParagraph.palSentences.ToString();
-            pWordCount_Label.Text = currentParagraph.palWords.ToString();
-            foreach(KeyValuePair<string,int> word in currentParagraph.individualWordsDictionary)
-            {
-                ListViewItem item = new ListViewItem(word.Key);
-                item.SubItems.Add(word.Value.ToString());
-                wordDisplay_LB.Items.Add(item);
-            }
-            
-           
-        }
-
-        private void groupBox3_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void letterSearch_TB_TextChanged(object sender, EventArgs e)
-        {
-           /* individualWords_View.Clear();
-            if (letterSearch_TB.Text != null && letterSearch_TB.Text != " ")
-            {
-                List<string> matchedWords = currentParagraph.searchForWords(letterSearch_TB.Text);
-                foreach (string word in matchedWords)
-                {
-                    individualWords_View.Items.Add(word);
-                }
-            }*/
-
         }
 
         private void letterSrch_BTN_Click(object sender, EventArgs e)
@@ -88,5 +69,45 @@ namespace PalandromeAssignment
             }
             individualWords_View.Sorting = SortOrder.Ascending; 
         }
+
+        #region /*----------------------------------------Display Functions-------------------------------------*/
+        void clearDisplays()
+        {
+            paragraph_Label.Text = "";
+            individualWords_View.Clear();
+            pSentenceCount_Label.Text = "0";
+            pWordCount_Label.Text = "0";
+
+            for (int i = 0; i < wordDisplay_LB.Items.Count; i++)
+            {
+                wordDisplay_LB.Items.RemoveAt(i);
+            }
+
+        }
+
+        void updateDisplay()
+        {
+            pSentenceCount_Label.Text = currentParagraph.palSentences.ToString();
+            pWordCount_Label.Text = currentParagraph.palWords.ToString();
+            for (int i = 0; i < wordDisplay_LB.Items.Count; i++)
+            {
+                wordDisplay_LB.Items.RemoveAt(i);
+            }
+            foreach (KeyValuePair<string, int> word in currentParagraph.individualWordsDictionary)
+            {
+                ListViewItem item = new ListViewItem(word.Key);
+                item.SubItems.Add(word.Value.ToString());
+                wordDisplay_LB.Items.Add(item);
+            }
+
+
+        }
+
+        void InstructUser()
+        {
+            paragraph_Label.Text = "Cannot enter a blank paragraph.";
+        }
+
+        #endregion
     }
 }
