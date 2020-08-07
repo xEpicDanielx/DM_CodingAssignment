@@ -17,7 +17,7 @@ namespace PalandromeAssignment
 
         //text of paragraph. 
         public string paragraphText;
-
+        
         public Form1()
         {
             InitializeComponent();
@@ -27,10 +27,25 @@ namespace PalandromeAssignment
         {
             //first we clear all displays
             clearDisplays();
+
             //this checks if user just entered a space or a empty paragraph.
             paragraphText = paragraph_TB.Text.Trim();
+
+            //now we check to make sure they didnt just enter nothing but punctuation
+            string tempText = paragraphText;
+            StringBuilder temp = new StringBuilder();
+
+            foreach(char c in tempText)
+            {
+                if (!char.IsPunctuation(c))
+                {
+                    temp.Append(c);
+                }
+            }
+            tempText = temp.ToString();
+
             //if its not 0 then we can create a paragraph.
-            if(paragraphText.Length != 0)
+            if(tempText.Length != 0)
             {
                 initParagraph();
             }
@@ -73,15 +88,11 @@ namespace PalandromeAssignment
         #region /*----------------------------------------Display Functions-------------------------------------*/
         void clearDisplays()
         {
+            wordDisplay_LB.Items.Clear();
             paragraph_Label.Text = "";
             individualWords_View.Clear();
             pSentenceCount_Label.Text = "0";
             pWordCount_Label.Text = "0";
-
-            for (int i = 0; i < wordDisplay_LB.Items.Count; i++)
-            {
-                wordDisplay_LB.Items.RemoveAt(i);
-            }
 
         }
 
@@ -89,10 +100,7 @@ namespace PalandromeAssignment
         {
             pSentenceCount_Label.Text = currentParagraph.palSentences.ToString();
             pWordCount_Label.Text = currentParagraph.palWords.ToString();
-            for (int i = 0; i < wordDisplay_LB.Items.Count; i++)
-            {
-                wordDisplay_LB.Items.RemoveAt(i);
-            }
+
             foreach (KeyValuePair<string, int> word in currentParagraph.individualWordsDictionary)
             {
                 ListViewItem item = new ListViewItem(word.Key);
@@ -100,12 +108,11 @@ namespace PalandromeAssignment
                 wordDisplay_LB.Items.Add(item);
             }
 
-
         }
 
         void InstructUser()
         {
-            paragraph_Label.Text = "Cannot enter a blank paragraph.";
+            paragraph_Label.Text = "Invalid Entry.";
         }
 
         #endregion

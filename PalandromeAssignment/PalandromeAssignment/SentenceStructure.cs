@@ -83,39 +83,5 @@ namespace PalandromeAssignment
 
             return sentences;
         }
-
-        //splits into sentences
-        public List<Sentence> getSentences(string pText)
-        {
-            List<Sentence> sentences = new List<Sentence>(); 
-            //split by sentance
-            string[] words = pText.Split(delimiterChars);
-
-            StringBuilder sb = new StringBuilder();
-
-            for (int i = 0; i < words.Length - 1; i++)
-            {
-                //get rid of all punctuation
-                foreach (char c in words[i])
-                {
-                    //make sure there is no whitespace or punctuation. 
-                    if (!char.IsPunctuation(c) && !char.IsWhiteSpace(c))
-                    {
-                        //adds char if its not a punctuation or space
-                        sb.Append(c);
-                    }
-                }
-
-                //thereis a better way to do this.
-                words[i] = sb.ToString();
-                Sentence temp = new Sentence();
-                sentences.Add(temp);
-                sb = new StringBuilder();
-            }
-
-      
-
-            return sentences; 
-        }
     }
 }

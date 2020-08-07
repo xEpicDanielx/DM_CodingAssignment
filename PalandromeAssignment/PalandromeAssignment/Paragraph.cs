@@ -13,8 +13,33 @@ namespace PalandromeAssignment
         public int palSentences;
         public int palWords;
 
-        
- 
+
+        public void developTheParagraph(string paragraphText)
+        {
+            string pText = paragraphText.ToLower();
+
+            //first we get the words and sentences.
+            individualWordsDictionary = getWordDictionary(pText);
+            sList = getSList(pText);
+
+            //check if palandrome
+            foreach (KeyValuePair<string, int> word in individualWordsDictionary)
+            {
+                if (checkIfPalendrome(word.Key))
+                {
+                    palWords++;
+                }
+            }
+            foreach (String sentence in sList)
+            {
+                if (checkIfPalendrome(sentence))
+                {
+                    palSentences++;
+                }
+            }
+
+        }
+
         public List<string> searchForWords(string letter)
         {
             letter = letter.ToLower(); 
@@ -28,35 +53,7 @@ namespace PalandromeAssignment
             }
             return matches; 
         }
-        public void developTheParagraph(string paragraphText)
-        {
-            string pText = paragraphText.ToLower();
-
-            //first we get the words and sentences.
-            individualWordsDictionary = getWordDictionary(pText);
-            sList = getSList(pText); 
-
-            //check if palandrome
-            foreach (KeyValuePair<string,int> word in individualWordsDictionary)
-            {
-                if (checkIfPalendrome(word.Key))
-                {
-                    palWords++;
-                }
-            }
-            foreach (String sentence in sList)
-            {
-                if (checkIfPalendrome(sentence)){
-                    palSentences++;
-                }
-            }
-            
-
-            
-            
-        }
         
-      
         bool checkIfPalendrome(string txt)
         {
             //making sure text isnt whitespace.
