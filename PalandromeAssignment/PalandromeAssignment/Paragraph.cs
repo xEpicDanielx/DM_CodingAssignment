@@ -9,8 +9,7 @@ namespace PalandromeAssignment
     class Paragraph
     {
         List<Sentence> sentenceList = new List<Sentence>();
-        List<Word> individualWordsList = new List<Word>();
-
+        public Dictionary<String, int> individualWordsDictionary = new Dictionary<String,int>();
         public int palSentences;
         public int palWords;
 
@@ -18,14 +17,27 @@ namespace PalandromeAssignment
         //What delimiterChars
         char[] delimiterChars = { '.', '!', '?' };
  
+        public List<string> searchForWords(string letter)
+        {
+            letter = letter.ToLower(); 
+            Console.WriteLine("SEARCHING");
+            List<string> matches = new List<string>();
 
+            foreach (KeyValuePair<string, int> word in individualWordsDictionary)
+            {
+                if (word.Key.Contains(letter))
+                    matches.Add(word.Key); 
+            }
+            return matches; 
+        }
         public void developTheParagraph(string paragraphText)
         {
+            string pText = paragraphText.ToLower(); 
             //first lets develop the words
-            developWords(paragraphText);
+            developWords(pText);
 
             //next lets develop the sentences
-            developSentences(paragraphText);
+            developSentences(pText);
         }
         public void developWords(string paragraphText)
         {
@@ -46,25 +58,28 @@ namespace PalandromeAssignment
 
                 //thereis a better way to do this.
                 individualWords[i] = sb.ToString();
-                Word temp = new Word();
-                temp.spelling = individualWords[i];
-                temp.isPalindrome = checkIfPalendrome(individualWords[i]);
-                if (temp.isPalindrome)
+                //check if palendrome
+                if (checkIfPalendrome(individualWords[i]))
                 {
                     palWords++;
                 }
-                if (individualWordsList.Contains(temp))
+                if (individualWordsDictionary.ContainsKey(individualWords[i]))
                 {
-                    temp.occuranceNumber++;
+                    individualWordsDictionary[individualWords[i]] += 1;
                 }
                 else
                 {
-                    temp.occuranceNumber = 1;
+                    individualWordsDictionary.Add(individualWords[i], 1);
                 }
+
                 sb = new StringBuilder();
             }
+            /*
+            foreach (KeyValuePair<string, int> word in individualWordsDictionary)
+            {
+                Console.WriteLine(word.Key + ":" + word.Value);
+            }*/
 
-            Console.WriteLine("YOU HAVE " + palWords + " Palindromes");
         }
         public void developSentences(string pText)
         {
