@@ -55,6 +55,38 @@ namespace PalandromeAssignment
             
            
         }
-        
+
+        private void groupBox3_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void letterSearch_TB_TextChanged(object sender, EventArgs e)
+        {
+           /* individualWords_View.Clear();
+            if (letterSearch_TB.Text != null && letterSearch_TB.Text != " ")
+            {
+                List<string> matchedWords = currentParagraph.searchForWords(letterSearch_TB.Text);
+                foreach (string word in matchedWords)
+                {
+                    individualWords_View.Items.Add(word);
+                }
+            }*/
+
+        }
+
+        private void letterSrch_BTN_Click(object sender, EventArgs e)
+        {
+            individualWords_View.Clear(); 
+            if (letterSearch_TB.Text != null && letterSearch_TB.Text != " ")
+            {
+                List<string> matchedWords = currentParagraph.searchForWords(letterSearch_TB.Text);
+                foreach (string word in matchedWords)
+                {
+                    individualWords_View.Items.Add(word);
+                }
+            }
+            individualWords_View.Sorting = SortOrder.Ascending; 
+        }
     }
 }

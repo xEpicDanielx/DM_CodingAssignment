@@ -40,8 +40,14 @@
             this.wordDisplay_LB = new System.Windows.Forms.ListView();
             this.Word = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Count = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.individualWords_View = new System.Windows.Forms.ListView();
+            this.letterSearch_TB = new System.Windows.Forms.TextBox();
+            this.letterSrch_BTN = new System.Windows.Forms.Button();
+            this.wrdSearchLabel = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -91,7 +97,7 @@
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Location = new System.Drawing.Point(361, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(427, 95);
+            this.groupBox2.Size = new System.Drawing.Size(427, 74);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Palandrome Stats";
@@ -100,7 +106,7 @@
             // 
             this.pWordCount_Label.AutoSize = true;
             this.pWordCount_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pWordCount_Label.Location = new System.Drawing.Point(315, 49);
+            this.pWordCount_Label.Location = new System.Drawing.Point(316, 38);
             this.pWordCount_Label.Name = "pWordCount_Label";
             this.pWordCount_Label.Size = new System.Drawing.Size(24, 25);
             this.pWordCount_Label.TabIndex = 3;
@@ -111,7 +117,7 @@
             // 
             this.pSentenceCount_Label.AutoSize = true;
             this.pSentenceCount_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pSentenceCount_Label.Location = new System.Drawing.Point(48, 49);
+            this.pSentenceCount_Label.Location = new System.Drawing.Point(48, 38);
             this.pSentenceCount_Label.Name = "pSentenceCount_Label";
             this.pSentenceCount_Label.Size = new System.Drawing.Size(24, 25);
             this.pSentenceCount_Label.TabIndex = 2;
@@ -143,9 +149,9 @@
             this.Count});
             this.wordDisplay_LB.GridLines = true;
             this.wordDisplay_LB.HideSelection = false;
-            this.wordDisplay_LB.Location = new System.Drawing.Point(361, 128);
+            this.wordDisplay_LB.Location = new System.Drawing.Point(237, 19);
             this.wordDisplay_LB.Name = "wordDisplay_LB";
-            this.wordDisplay_LB.Size = new System.Drawing.Size(181, 283);
+            this.wordDisplay_LB.Size = new System.Drawing.Size(184, 268);
             this.wordDisplay_LB.TabIndex = 3;
             this.wordDisplay_LB.UseCompatibleStateImageBehavior = false;
             this.wordDisplay_LB.View = System.Windows.Forms.View.Details;
@@ -160,12 +166,68 @@
             this.Count.Text = "Count";
             this.Count.Width = 61;
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.wrdSearchLabel);
+            this.groupBox3.Controls.Add(this.letterSrch_BTN);
+            this.groupBox3.Controls.Add(this.letterSearch_TB);
+            this.groupBox3.Controls.Add(this.individualWords_View);
+            this.groupBox3.Controls.Add(this.wordDisplay_LB);
+            this.groupBox3.Location = new System.Drawing.Point(361, 102);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(427, 309);
+            this.groupBox3.TabIndex = 4;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Individual Words";
+            this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
+            // 
+            // individualWords_View
+            // 
+            this.individualWords_View.GridLines = true;
+            this.individualWords_View.HideSelection = false;
+            this.individualWords_View.Location = new System.Drawing.Point(95, 52);
+            this.individualWords_View.Name = "individualWords_View";
+            this.individualWords_View.Size = new System.Drawing.Size(123, 222);
+            this.individualWords_View.TabIndex = 4;
+            this.individualWords_View.UseCompatibleStateImageBehavior = false;
+            this.individualWords_View.View = System.Windows.Forms.View.List;
+            // 
+            // letterSearch_TB
+            // 
+            this.letterSearch_TB.Location = new System.Drawing.Point(35, 114);
+            this.letterSearch_TB.MaxLength = 1;
+            this.letterSearch_TB.Name = "letterSearch_TB";
+            this.letterSearch_TB.Size = new System.Drawing.Size(28, 20);
+            this.letterSearch_TB.TabIndex = 5;
+            this.letterSearch_TB.TextChanged += new System.EventHandler(this.letterSearch_TB_TextChanged);
+            // 
+            // letterSrch_BTN
+            // 
+            this.letterSrch_BTN.Location = new System.Drawing.Point(14, 156);
+            this.letterSrch_BTN.Name = "letterSrch_BTN";
+            this.letterSrch_BTN.Size = new System.Drawing.Size(75, 23);
+            this.letterSrch_BTN.TabIndex = 6;
+            this.letterSrch_BTN.Text = "Search";
+            this.letterSrch_BTN.UseVisualStyleBackColor = true;
+            this.letterSrch_BTN.Click += new System.EventHandler(this.letterSrch_BTN_Click);
+            // 
+            // wrdSearchLabel
+            // 
+            this.wrdSearchLabel.Location = new System.Drawing.Point(6, 16);
+            this.wrdSearchLabel.Name = "wrdSearchLabel";
+            this.wrdSearchLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.wrdSearchLabel.Size = new System.Drawing.Size(225, 33);
+            this.wrdSearchLabel.TabIndex = 7;
+            this.wrdSearchLabel.Text = "Input 1 Letter into box below. Then hit search to find all words with matching le" +
+    "tter.";
+            this.wrdSearchLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.wordDisplay_LB);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "Form1";
@@ -174,6 +236,8 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -192,6 +256,11 @@
         private System.Windows.Forms.ListView wordDisplay_LB;
         private System.Windows.Forms.ColumnHeader Word;
         private System.Windows.Forms.ColumnHeader Count;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.ListView individualWords_View;
+        private System.Windows.Forms.TextBox letterSearch_TB;
+        private System.Windows.Forms.Label wrdSearchLabel;
+        private System.Windows.Forms.Button letterSrch_BTN;
     }
 }
 

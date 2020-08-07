@@ -9,8 +9,6 @@ namespace PalandromeAssignment
     class Paragraph
     {
         List<Sentence> sentenceList = new List<Sentence>();
-        public List<Word> individualWordsList = new List<Word>();
-        
         public Dictionary<String, int> individualWordsDictionary = new Dictionary<String,int>();
         public int palSentences;
         public int palWords;
@@ -19,7 +17,19 @@ namespace PalandromeAssignment
         //What delimiterChars
         char[] delimiterChars = { '.', '!', '?' };
  
+        public List<string> searchForWords(string letter)
+        {
+            letter = letter.ToLower(); 
+            Console.WriteLine("SEARCHING");
+            List<string> matches = new List<string>();
 
+            foreach (KeyValuePair<string, int> word in individualWordsDictionary)
+            {
+                if (word.Key.Contains(letter))
+                    matches.Add(word.Key); 
+            }
+            return matches; 
+        }
         public void developTheParagraph(string paragraphText)
         {
             string pText = paragraphText.ToLower(); 
@@ -64,10 +74,11 @@ namespace PalandromeAssignment
 
                 sb = new StringBuilder();
             }
+            /*
             foreach (KeyValuePair<string, int> word in individualWordsDictionary)
             {
                 Console.WriteLine(word.Key + ":" + word.Value);
-            }
+            }*/
 
         }
         public void developSentences(string pText)
