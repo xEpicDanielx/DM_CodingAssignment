@@ -89,7 +89,10 @@ namespace PalandromeAssignment
         {
             pSentenceCount_Label.Text = currentParagraph.palSentences.ToString();
             pWordCount_Label.Text = currentParagraph.palWords.ToString();
-
+            for (int i = 0; i < wordDisplay_LB.Items.Count; i++)
+            {
+                wordDisplay_LB.Items.RemoveAt(i);
+            }
             foreach (KeyValuePair<string, int> word in currentParagraph.individualWordsDictionary)
             {
                 ListViewItem item = new ListViewItem(word.Key);
