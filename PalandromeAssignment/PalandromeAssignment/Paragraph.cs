@@ -48,30 +48,20 @@ namespace PalandromeAssignment
 
                 //thereis a better way to do this.
                 individualWords[i] = sb.ToString();
-                /*Word temp = new Word();
-                temp.spelling = individualWords[i];
-                temp.isPalindrome = checkIfPalendrome(individualWords[i]);
-                if (temp.isPalindrome)
+                //check if palendrome
+                if (checkIfPalendrome(individualWords[i]))
                 {
                     palWords++;
                 }
-                if (individualWordsList.Contains(temp))
-                {
-                    temp.occuranceNumber++;
-                }
-                else
-                {
-                    temp.occuranceNumber = 1;
-                }
-                individualWordsList.Add(temp);*/
                 if (individualWordsDictionary.ContainsKey(individualWords[i]))
                 {
-                    individualWordsDictionary[individualWords[i]] += 1; 
+                    individualWordsDictionary[individualWords[i]] += 1;
                 }
                 else
                 {
-                    individualWordsDictionary.Add(individualWords[i], 1); 
+                    individualWordsDictionary.Add(individualWords[i], 1);
                 }
+
                 sb = new StringBuilder();
             }
             foreach (KeyValuePair<string, int> word in individualWordsDictionary)

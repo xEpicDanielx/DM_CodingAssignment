@@ -25,7 +25,6 @@ namespace PalandromeAssignment
 
             paragraphText = paragraph_TB.Text;
         
-
             initParagraph();
         }
 
@@ -41,7 +40,6 @@ namespace PalandromeAssignment
                 paragraph_Label.Text = "Please enter a paragraph";
 
             updateDisplay();
-            /*split words*/
         }
 
         void updateDisplay()
