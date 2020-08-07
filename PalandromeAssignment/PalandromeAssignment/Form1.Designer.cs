@@ -41,10 +41,10 @@
             this.Word = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Count = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.individualWords_View = new System.Windows.Forms.ListView();
-            this.letterSearch_TB = new System.Windows.Forms.TextBox();
-            this.letterSrch_BTN = new System.Windows.Forms.Button();
             this.wrdSearchLabel = new System.Windows.Forms.Label();
+            this.letterSrch_BTN = new System.Windows.Forms.Button();
+            this.letterSearch_TB = new System.Windows.Forms.TextBox();
+            this.individualWords_View = new System.Windows.Forms.ListView();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -64,10 +64,9 @@
             // 
             // paragraph_Label
             // 
-            this.paragraph_Label.AutoSize = true;
-            this.paragraph_Label.Location = new System.Drawing.Point(41, 102);
+            this.paragraph_Label.Location = new System.Drawing.Point(16, 90);
             this.paragraph_Label.Name = "paragraph_Label";
-            this.paragraph_Label.Size = new System.Drawing.Size(226, 13);
+            this.paragraph_Label.Size = new System.Drawing.Size(287, 73);
             this.paragraph_Label.TabIndex = 1;
             this.paragraph_Label.Text = "Please enter a paragraph in the text box below";
             // 
@@ -179,37 +178,6 @@
             this.groupBox3.TabIndex = 4;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Individual Words";
-            this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
-            // 
-            // individualWords_View
-            // 
-            this.individualWords_View.GridLines = true;
-            this.individualWords_View.HideSelection = false;
-            this.individualWords_View.Location = new System.Drawing.Point(95, 52);
-            this.individualWords_View.Name = "individualWords_View";
-            this.individualWords_View.Size = new System.Drawing.Size(123, 222);
-            this.individualWords_View.TabIndex = 4;
-            this.individualWords_View.UseCompatibleStateImageBehavior = false;
-            this.individualWords_View.View = System.Windows.Forms.View.List;
-            // 
-            // letterSearch_TB
-            // 
-            this.letterSearch_TB.Location = new System.Drawing.Point(35, 114);
-            this.letterSearch_TB.MaxLength = 1;
-            this.letterSearch_TB.Name = "letterSearch_TB";
-            this.letterSearch_TB.Size = new System.Drawing.Size(28, 20);
-            this.letterSearch_TB.TabIndex = 5;
-            this.letterSearch_TB.TextChanged += new System.EventHandler(this.letterSearch_TB_TextChanged);
-            // 
-            // letterSrch_BTN
-            // 
-            this.letterSrch_BTN.Location = new System.Drawing.Point(14, 156);
-            this.letterSrch_BTN.Name = "letterSrch_BTN";
-            this.letterSrch_BTN.Size = new System.Drawing.Size(75, 23);
-            this.letterSrch_BTN.TabIndex = 6;
-            this.letterSrch_BTN.Text = "Search";
-            this.letterSrch_BTN.UseVisualStyleBackColor = true;
-            this.letterSrch_BTN.Click += new System.EventHandler(this.letterSrch_BTN_Click);
             // 
             // wrdSearchLabel
             // 
@@ -221,6 +189,35 @@
             this.wrdSearchLabel.Text = "Input 1 Letter into box below. Then hit search to find all words with matching le" +
     "tter.";
             this.wrdSearchLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // letterSrch_BTN
+            // 
+            this.letterSrch_BTN.Location = new System.Drawing.Point(14, 156);
+            this.letterSrch_BTN.Name = "letterSrch_BTN";
+            this.letterSrch_BTN.Size = new System.Drawing.Size(75, 23);
+            this.letterSrch_BTN.TabIndex = 6;
+            this.letterSrch_BTN.Text = "Search";
+            this.letterSrch_BTN.UseVisualStyleBackColor = true;
+            this.letterSrch_BTN.Click += new System.EventHandler(this.letterSrch_BTN_Click);
+            // 
+            // letterSearch_TB
+            // 
+            this.letterSearch_TB.Location = new System.Drawing.Point(35, 114);
+            this.letterSearch_TB.MaxLength = 1;
+            this.letterSearch_TB.Name = "letterSearch_TB";
+            this.letterSearch_TB.Size = new System.Drawing.Size(28, 20);
+            this.letterSearch_TB.TabIndex = 5;
+            // 
+            // individualWords_View
+            // 
+            this.individualWords_View.GridLines = true;
+            this.individualWords_View.HideSelection = false;
+            this.individualWords_View.Location = new System.Drawing.Point(95, 52);
+            this.individualWords_View.Name = "individualWords_View";
+            this.individualWords_View.Size = new System.Drawing.Size(123, 222);
+            this.individualWords_View.TabIndex = 4;
+            this.individualWords_View.UseCompatibleStateImageBehavior = false;
+            this.individualWords_View.View = System.Windows.Forms.View.List;
             // 
             // Form1
             // 
